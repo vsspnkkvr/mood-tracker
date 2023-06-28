@@ -3,8 +3,25 @@
 <%= render @day %>
 
 <div>
-  <%= link_to "Edit this day", edit_day_path(@day) %> |
-  <%= link_to "Back to days", days_path %>
-
-  <%= button_to "Destroy this day", @day, method: :delete %>
+  <%= link_to "Edit this day", edit_day_path(@day) %> 
+  <%= button_to "Delete", @day, method: :delete, data: { turbo_confirm: "Are you sure?"} %>
 </div>
+
+<div id="notes">
+  <h1>Notes</h1>
+
+  <% @day.notes.each do |note| %>
+    <div class= "notedetails">
+      <strong><%= note.created_at.to_date %></strong>
+      <div class= "block"> <%= note.content %> </div>
+      <div class= "block"> <%= link_to "Edit", edit_day_note_path(@day, note) %></div>
+      <%= button_to "Delete", [@day, note], method: :delete, data: { turbo_confirm: "Are you sure?"} %>
+    </div>
+  <% end %>
+
+  <h2>Add a note</h2>
+  <%= render partial: "notes/form", locals: {note: @day.notes.new} %>
+
+</div>
+
+  <%= link_to "Back to days", days_path %>

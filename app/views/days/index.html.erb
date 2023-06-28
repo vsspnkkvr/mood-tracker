@@ -1,9 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>All Daily Mood Ratings</h1>
+<h2>Your mood over time</h2>
+
+
+<%= line_chart Day.group_by_day(:mooddate).sum(:moodrating) %>
+
+<h2>All daily mood ratings</h2>
 
 <div id="days" >
-  <% @days.each do |day| %>
+  <% @days.reverse_each do |day| %>
   <div class="daydetails">
     <%= render day %>
     <p>
@@ -13,4 +18,4 @@
   <% end %>
 </div>
 
-<%= link_to "New day", new_day_path %>
+<button type='button' onclick="location.href='<%= new_day_path() %>';">New Day</button>
