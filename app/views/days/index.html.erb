@@ -2,8 +2,18 @@
 
 <h2>Your mood over time</h2>
 
+<div id="piechartbutton"><button onclick="switchpiechart()">See pie chart</button></div>
 
+<div id="linechartbutton" class="hidden"><button onclick="switchlinechart()">See line chart</button></div>
+
+
+<div id="linechart">
 <%= line_chart Day.group_by_day(:mooddate).sum(:moodrating) %>
+</div>
+
+<div id="piechart" class="hidden">
+<%= pie_chart Day.group(:moodrating).count %>
+</div>
 
 <h2>All daily mood ratings</h2>
 
@@ -19,3 +29,33 @@
 </div>
 
 <button type='button' onclick="location.href='<%= new_day_path() %>';">New Day</button>
+
+
+
+<script>
+
+  function switchpiechart() {
+    var linechart = document.getElementById("linechart");
+    var piechart = document.getElementById("piechart");
+    var linechartbutton = document.getElementById("linechartbutton");
+    var piechartbutton = document.getElementById("piechartbutton");
+
+    piechart.classList.remove("hidden");
+    linechart.classList.add("hidden");
+    piechartbutton.classList.add("hidden");
+    linechartbutton.classList.remove("hidden");
+  }
+
+  function switchlinechart() {
+    var linechart = document.getElementById("linechart");
+    var piechart = document.getElementById("piechart");
+    var linechartbutton = document.getElementById("linechartbutton");
+    var piechartbutton = document.getElementById("piechartbutton");
+
+    piechart.classList.add("hidden");
+    linechart.classList.remove("hidden");
+    piechartbutton.classList.remove("hidden");
+    linechartbutton.classList.add("hidden");
+  }
+
+</script>
