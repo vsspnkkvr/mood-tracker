@@ -10,20 +10,22 @@
       </ul>
     </div>
   <% end %>
-
   <div class="form">
     <%= form.label :mooddate, "Date: "%>
   </div>
 
   <div class="form">
     <%= form.date_field :mooddate %>
-
+  </div>
   <div class="form">
     <%= form.label :moodrating, "Rating from -5 - 5: "%>
   </div>
   
   <div class="form">
-    <%= form.number_field :moodrating %>
+      <% -5.upto(5) do |i| %>
+      <%= form.radio_button(:moodrating, i) %>
+      <%= form.label :moodrating,  :value => i%>
+      <% end %>
   </div>
 
   <div class="form">
@@ -43,7 +45,7 @@
   </div>
   
   <div class="form">
-    <%= form.submit %>
+    <%= form.submit class: "button btn-primary" %>
   </div>
 
 <% end %>
