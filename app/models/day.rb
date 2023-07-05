@@ -5,9 +5,9 @@ class Day < ApplicationRecord
     validates :mooddate, uniqueness: true
 
     def self.ransackable_attributes(auth_object = nil)
-        ["created_at", "id", "mooddate", "moodjournal", "moodrating", "moodword", "updated_at"]
+        ["moodrating", "moodword", "moodjournal", "mooddate"]
     end
     def self.ransackable_associations(auth_object = nil)
-        ["notes"]
+        []
       end
 end

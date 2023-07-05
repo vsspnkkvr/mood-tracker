@@ -34,6 +34,7 @@
 
 <h2>All daily mood entries</h2>
 
+
 <div class="leftshift1"><%= render 'search/form'%></div>
 
 <div id="days" >
@@ -50,6 +51,7 @@
   <% end %>
 </div>
 
+    <footer id="footer"></footer>
 
 
 
@@ -79,4 +81,35 @@
     linechartbutton.classList.add("hidden");
   }
 
+
+
+  const today = new Date();
+
+  let thisYear = today.getFullYear();
+
+  console.log(thisYear);
+
+  const footer = document.querySelector("#footer");
+
+  const copyright = document.createElement("p");
+
+
+  copyright.setAttribute('id','copyright');
+
+  copyright.innerText = "Natalie Petrolino (aka vsspnkr) " + thisYear + " ฅ^._.^ฅ";
+
+  footer.appendChild(copyright);
+
+
+  window.addEventListener("load", function() {
+    
+    let catblink = document.getElementById('copyright');
+    
+    setInterval(function() {
+        
+        catblink.innerText = (catblink.innerText == 'Natalie Petrolino (aka vsspnkr) ' + thisYear + ' ฅ^._.^ฅ' ? 'Natalie Petrolino (aka vsspnkr) ' + thisYear + ' ฅ^u_u^ฅ' : 'Natalie Petrolino (aka vsspnkr) ' + thisYear + ' ฅ^._.^ฅ');
+
+    }, 1000);
+
+} , false);
 </script>
