@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+  devise_for :users
   root 'days#index', as: 'home'
 
   get 'search', to: 'search#index'
