@@ -1,24 +1,15 @@
-# README
+# Mood Tracker v1.0
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To get the application up and running after cloning:
 
-Things you may want to cover:
+* you'll need to run Ruby v3.1.2
 
-* Ruby version
+** ruby -v
+or
+** rbenv install 3.1.2
 
-* System dependencies
 
-* Configuration
+* bundle update
 
-* Database creation
+* rails db:migrate
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
