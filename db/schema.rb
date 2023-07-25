@@ -11,15 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_06_28_022727) do
-  create_table "days", force: :cascade do |t|
-    t.date "mooddate"
-    t.integer "moodrating"
-    t.text "moodjournal"
-    t.string "moodword"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "notes", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
