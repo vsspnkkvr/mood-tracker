@@ -1,4 +1,15 @@
 class ApplicationController < ActionController::Base
+
+    private
+    
+    def authenticate_user!
+        if user_signed_in?
+            root_path
+        else
+            render 'home/index', notice: "Please Login to view that page!"
+        end
+    end
+    
     before_action :set_query
 
     def set_query
