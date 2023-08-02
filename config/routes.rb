@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'days#index', as: 'home'
+  get 'home/index'
+  root 'home#index'
 
   get 'search', to: 'search#index'
 
